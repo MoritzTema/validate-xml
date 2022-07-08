@@ -50,7 +50,7 @@ jobs:
          echo Pull allowed!
          exit 0
 
-      -name: Run user validation
+      - name: Run user validation
         if: ! ${{ github.event.pull_request.user.login }} == ${{ secrets.ALLOWED_USERS }}
         run: | 
           echo Pull not allowed!
