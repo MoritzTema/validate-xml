@@ -45,16 +45,22 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run user validation
-        if: ${{ github.event.pull_request.user.login }} == $ALLOWED_USERS
         run: |
-         echo Pull allowed!
-         exit 0
+         if ${{ github.event.pull_request.user.login }} == $ALLOWED_USERS; then
+            echo Pull allowed!
+            exit 0
+          else
+            echo Pull not allowed!
+            exit 1
+          fi
 
-      - name: Run user validation
-        if: ${{ github.event.pull_request.user.login }} != $ALLOWED_USERS 
-        run: | 
-          echo Pull not allowed!
-          exit 1
+
+
+      # - name: Run user validation
+      #   if: ${{ github.event.pull_request.user.login }} != $ALLOWED_USERS 
+      #   run: | 
+      #     echo Pull not allowed!
+      #     exit 1
 
 
 
