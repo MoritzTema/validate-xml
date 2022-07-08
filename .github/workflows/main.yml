@@ -43,6 +43,17 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v23.1
+
+      - name: List all changed files
+        run: |
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}
+          do
+            echo "$file was changed"
+          done    
+
       # Runs a single command using the runners shell
       - name: Run user validation
         run: |
@@ -54,27 +65,3 @@ jobs:
               echo Pull not allowed!
               exit 1
           fi
-
-
-
-    # if [ "${{ github.event.pull_request.user.login }}" == "$ALLOWED_USERS" ]
-      # - name: Run user validation
-      #   if: ${{ github.event.pull_request.user.login }} != $ALLOWED_USERS 
-      #   run: | 
-      #     echo Pull not allowed!
-      #     exit 1
-
-
-
-
-        # run: | 
-        #   if ${{ github.event.pull_request.user.login }} == ${{ secrets.ALLOWED_USERS}}; then
-        #     echo Pull allowed!
-        #   else
-        #     echo Pull not allowed!
-        #     exit 1
-        #   fi
-
-
-        #run: echo ${{ github.event.pull_request.user.login }} 
-        #run: git log -1 --pretty=format:'%ae' | xargs
