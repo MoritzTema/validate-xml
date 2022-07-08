@@ -54,6 +54,17 @@ jobs:
             echo "$file was changed"
           done    
 
+      - name: Show json
+        id: set_var
+        run: |
+          content = ${{ secrets.ALLOWED_USERS }}
+          echo "::set-output name=packageJson::$content"
+        run: |
+          echo "${{fromJson(set_var.outputs.packageJson).version}}"
+
+
+
+
       # Runs a single command using the runners shell
       - name: Run user validation
         run: |
