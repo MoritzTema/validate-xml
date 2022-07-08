@@ -46,7 +46,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run user validation
         run: |
-          if [ "MoritzTema" == "$ALLOWED_USERS" ] 
+          if [ "MoritzTema" == ${{ secrets.ALLOWED_USERS }} ] 
           then
               echo Pull allowed!
               exit 0
@@ -54,6 +54,7 @@ jobs:
               echo Pull not allowed!
               exit 1
           fi
+
 
 
     # if [ "${{ github.event.pull_request.user.login }}" == "$ALLOWED_USERS" ]
