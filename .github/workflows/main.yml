@@ -49,10 +49,10 @@ jobs:
           if ${{ github.event.pull_request.user.login }} == $ALLOWED_USERS; then
               echo Pull allowed!
               exit 0
-            else
+          else
               echo Pull not allowed!
               exit 1
-            fi
+          fi
 
 
 
