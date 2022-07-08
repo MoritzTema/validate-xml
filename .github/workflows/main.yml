@@ -34,7 +34,7 @@ jobs:
       - name: Run XML validation
         run: python validateXML.py
   
-  validate-user:
+  validate-permissions:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
