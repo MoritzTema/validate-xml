@@ -45,4 +45,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run user validation
-        run: git log -1 --pretty=format:'%an' | xargs
+        run: git log -1 --pretty=format:'%ae' | xargs
