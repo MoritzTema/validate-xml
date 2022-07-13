@@ -55,6 +55,7 @@ jobs:
           done    
 
       - name: Read JSON
+        id: set_var
         run: |
           content=`cat ../users.json`
           # the following lines are only required for multi line json
