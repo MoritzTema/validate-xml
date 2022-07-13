@@ -31,12 +31,8 @@ jobs:
       - run: pip install -r requirements.txt    
 
       # Runs a single command using the runners shell
-      #- name: Run XML validation
-      #  run: python validateXML.py
-      - name: Test env
-        env:
-          ALLOWED_USERS: ${{ secrets.ALLOWED_USERS }}
-        run: python validateUser.py  
+      - name: Run XML validation
+        run: python validateXML.py
   
   validate-user:
     # The type of runner that the job will run on
@@ -59,10 +55,10 @@ jobs:
           done    
 
       - name: Read JSON
-        id: set_var
         run: |
-          content=`cat ./users.json`
-          echo content
+          sudo apt-get install -y jq
+          jq '.[]."company-02"' users.json
+          
 
       # Runs a single command using the runners shell
       - name: Run user validation
