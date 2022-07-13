@@ -52,8 +52,8 @@ jobs:
           for file in ${{ steps.changed-files.outputs.all_changed_files }}
           do
             echo "$file was changed"
-            echo "Substring:"
-            echo "$file | cut -d'/' -f 2"
+            echo Substring:
+            echo '$file' | cut -d'/' -f 1
           done    
 
       - name: Read JSON
