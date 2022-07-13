@@ -57,7 +57,7 @@ jobs:
       - name: Read JSON
         id: set_var
         run: |
-          content = cat ./users.json
+          content=`cat ./users.json`
           echo content
 
       # Runs a single command using the runners shell
