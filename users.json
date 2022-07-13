@@ -1,0 +1,10 @@
+[
+    {
+        "name": "company-01",
+        "usernames": ["MoritzTema", "username2"]
+    },
+    {
+        "name": "company-02",
+        "usernames":["username1", "username2"]
+    }
+]
