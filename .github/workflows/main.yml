@@ -60,7 +60,7 @@ jobs:
 
 
       - name: Set variables
-        uses: hmanzur/actions-set-secrets@v2.0.0
+        uses: hmanzur/actions-set-secret@v2.0.0
         with:
           name: 'CHANGED_FILES'
           value: ${{ steps.changed-files.outputs.all_changed_files }}
