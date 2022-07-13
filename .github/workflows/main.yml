@@ -31,8 +31,12 @@ jobs:
       - run: pip install -r requirements.txt    
 
       # Runs a single command using the runners shell
-      - name: Run XML validation
-        run: python validateXML.py
+      #- name: Run XML validation
+      #  run: python validateXML.py
+      - name: Test env
+        env:
+          ALLOWED_USERS: ${{ secrets.ALLOWED_USERS }}
+        run: python validateUser.py  
   
   validate-user:
     # The type of runner that the job will run on
