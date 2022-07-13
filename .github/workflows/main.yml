@@ -57,14 +57,7 @@ jobs:
       - name: Read JSON
         id: set_var
         run: |
-          content=`cat ../users.json`
-          # the following lines are only required for multi line json
-          content="${content//'%'/'%25'}"
-          content="${content//$'\n'/'%0A'}"
-          content="${content//$'\r'/'%0D'}"
-          # end of optional handling for multi line json
-          echo "::set-output name=packageJson::$content"
-          echo "${{fromJson(steps.set_var.outputs.packageJson).version}}"
+          cat ./users.json
 
 
       # Runs a single command using the runners shell
