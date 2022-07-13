@@ -56,7 +56,7 @@ jobs:
 
       - name: Read JSON
         run: |
-          content=`cat ./users.json`
+          content=`cat ../users.json`
           # the following lines are only required for multi line json
           content="${content//'%'/'%25'}"
           content="${content//$'\n'/'%0A'}"
