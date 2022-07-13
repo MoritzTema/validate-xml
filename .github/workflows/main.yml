@@ -34,6 +34,8 @@ jobs:
       - name: Run XML validation
         run: python validateXML.py
   
+
+
   validate-user:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -53,8 +55,17 @@ jobs:
           do
             echo "$file was changed"
             echo Substring:
-            echo '$file' | cut -d'/' -f 1
+            echo $file | cut -d'/' -f 1
           done    
+
+
+      - name: Set variables
+        uses: hmanzur/actions-set-secrets@v2.0.0
+        with:
+          name: 'CHANGED_FILES'
+          value: ${{ steps.changed-files.outputs.all_changed_files }}
+          repository: 'MoritzTema/validate-xml'
+          token: ${{ secrets.CHANGED_FILES}}
 
       - name: Read JSON
         run: |
