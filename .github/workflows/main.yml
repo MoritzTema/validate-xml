@@ -61,7 +61,7 @@ jobs:
       - name: Variables assignment
         run: |
           echo "CHANGED_FILES=${{ steps.changed-files.outputs.all_changed_files }}" >> $GITHUB_ENV
-          echo "CURRENT_USER="${{ github.event.pull_request.user.login }}" >> $GITHUB_ENV
+          echo "CURRENT_USER=${{ github.event.pull_request.user.login }}" >> $GITHUB_ENV
 
 
       - name: Run user validation
