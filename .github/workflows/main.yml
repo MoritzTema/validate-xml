@@ -47,6 +47,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+      - uses: tj-actions/changed-files@v23.1
       - uses: actions/setup-python@4
         with:
           python-version: '3.x'
@@ -55,9 +56,7 @@ jobs:
 
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@v23.1
         run: $CHANGED_FILES = ${{ steps.changed-files.outputs.all_changed_files }}
-
 
       - name: Run user validation
         run: python validateUser.py
