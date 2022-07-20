@@ -56,18 +56,14 @@ jobs:
 
       - name: Get changed files
         id: changed-files
-       # run: $CHANGED_FILES = ${{ steps.changed-files.outputs.all_changed_files }}
         run: echo "CHANGED_FILES=$(echo ${{ steps.changed-files.outputs.all_changed_files }})" >> $GITHUB_ENV
 
       - name: Run user validation
         run: python validateUser.py
 
 
-
-
       - name: List all changed files
         run: |
-
           for file in ${{ steps.changed-files.outputs.all_changed_files }}
           do
             echo "$file was changed"
