@@ -60,7 +60,7 @@ jobs:
 
       - name: Run user validation
         run: |
-          echo "CHANGED_FILES=$(echo ${{ steps.changed-files.outputs.all_changed_files }})" >> $GITHUB_ENV
+          echo "CHANGED_FILES=${{ steps.changed-files.outputs.all_changed_files }}" >> $GITHUB_ENV
           python validateUser.py
           echo $CHANGED_FILES
 
