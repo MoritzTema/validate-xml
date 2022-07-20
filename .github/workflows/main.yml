@@ -57,10 +57,11 @@ jobs:
         id: changed-files
         uses: tj-actions/changed-files@v23.1
         
-        
+
       - name: Run user validation
-        run: echo "CHANGED_FILES=$(echo ${{ steps.changed-files.outputs.all_changed_files }})" >> $GITHUB_ENV
-        run: python validateUser.py
+        run: |
+          echo "CHANGED_FILES=$(echo ${{ steps.changed-files.outputs.all_changed_files }})" >> $GITHUB_ENV
+          python validateUser.py
 
 
       - name: List all changed files
