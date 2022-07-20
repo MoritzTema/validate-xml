@@ -14,6 +14,8 @@ def validate(xml_path: str, xsd_path: str) -> bool:
     return result
 
 
+TEST_PY= os.environ.get("TEST_PY")
+print(TEST_PY)
 rootdir = os.getcwd()
 #Durchlaueft das gesamte Repo und checkt alle .xml Dateien
 
