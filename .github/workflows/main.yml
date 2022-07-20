@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      CHANGED_FILES: null
+      CHANGED_FILES: initValue_CHANGED_FILES
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
