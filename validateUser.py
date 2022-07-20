@@ -1,5 +1,5 @@
 import os 
 
-USER = os.environ.get("ALLOWED_USERS")
+CHANGED_FILES = os.environ.get("CHANGED_FILES")
 
-print(USER)
+print(CHANGED_FILES)
